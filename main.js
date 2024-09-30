@@ -18,6 +18,14 @@ document.getElementById('form-contatos').addEventListener('submit', function(eve
     const nome = document.getElementById('nome').value
     const telefone = document.getElementById('numero-contato').value
 
+    // Verifica se o telefone está no formato correto
+    const regexTelefone = /^\(\d{2}\)\s\d{1}\s\d{4}-\d{4}$/;
+
+    if (!regexTelefone.test(telefone)) {
+        alert('Por favor, insira o número de telefone no formato correto: (XX) X XXXXXXXX ');
+        return; // Impede o envio do formulário se o telefone estiver incorreto
+    }
+
     // Cria uma nova linha na tabela
     const novaLinha = document.createElement('tr')
 
